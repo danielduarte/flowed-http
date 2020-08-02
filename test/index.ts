@@ -1,7 +1,9 @@
 import { expect } from 'chai';
+import * as plugin from '../src';
 
-describe('test section', () => {
-  it('test', () => {
-    expect(1).to.be.eql(1);
+describe('flowed http library', () => {
+  it('check exported fields', () => {
+    const library = plugin;
+    expect(Object.keys(library)).to.deep.equal(['resolverLibrary']);
   });
 });

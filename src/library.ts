@@ -11,7 +11,7 @@ export class HttpRequest {
       timeout: params.timeout || 3000,
       auth: params.auth,
       responseType: params.responseType || 'json', // options: 'arraybuffer', 'document', 'json', 'text', 'stream', 'blob' (only for browser)
-      responseEncoding: params.responseType || 'utf8',
+      responseEncoding: params.responseEncoding || 'utf8',
       xsrfCookieName: params.xsrfCookieName || 'XSRF-TOKEN',
       xsrfHeaderName: params.xsrfHeaderName || 'X-XSRF-TOKEN',
       maxContentLength: params.maxContentLength || 64000,
@@ -33,4 +33,41 @@ export class HttpRequest {
       throw new Error(err.message);
     }
   }
+
+  public static flowedSpec: object = {};
 }
+
+const FlowedTypes = {
+  str: 'STR',
+  obj: 'OBJ',
+  num: 'NUM',
+  bool: 'BOOL',
+};
+
+HttpRequest.flowedSpec = {
+  version: '0.1.0',
+  params: {
+    url: FlowedTypes.str,
+    method: FlowedTypes.str,
+    headers: FlowedTypes.obj,
+    query: FlowedTypes.obj,
+    body: FlowedTypes.str,
+    timeout: FlowedTypes.num,
+    auth: FlowedTypes.obj,
+    responseType: FlowedTypes.str,
+    responseEncoding: FlowedTypes.str,
+    xsrfCookieName: FlowedTypes.str,
+    xsrfHeaderName: FlowedTypes.str,
+    maxContentLength: FlowedTypes.num,
+    maxBodyLength: FlowedTypes.num,
+    maxRedirects: FlowedTypes.num,
+    proxy: FlowedTypes.obj,
+    decompress: FlowedTypes.bool,
+  },
+  results: {
+    status: FlowedTypes.num,
+    statusText: FlowedTypes.str,
+    headers: FlowedTypes.obj,
+    body: FlowedTypes.str,
+  },
+};
