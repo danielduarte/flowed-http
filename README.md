@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/npm/l/flowed-http?color=%23007ec6)](https://github.com/danielduarte/flowed-http/blob/master/LICENSE)
 [![NPM Package Version](https://img.shields.io/npm/v/flowed-http)](https://www.npmjs.com/package/flowed-http)
 
-Flowed resolver library to make HTTP/HTTPS request
+Flowed resolver library to make HTTP/HTTPS requests.
 
 ## Installation
 
